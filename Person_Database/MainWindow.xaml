@@ -6,7 +6,38 @@
         xmlns:local="clr-namespace:Person_Database"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!-- Felső menüsor -->
+        <Border Style="{StaticResource BorderStyle}" Grid.Row="0">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Frame x:Name="inputFrame" NavigationUIVisibility="Hidden"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Home" Click="HomeButton_Click" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Data add" Click="DataAddButton_Click" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Data change" Click="DataChangeButton_Click" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Data delete" Click="DataDeleteButton_Click" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Data search" Click="DataSearchButton_Click" Style="{StaticResource ButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1">
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" />
+        </Grid>
     </Grid>
 </Window>
