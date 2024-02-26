@@ -1,6 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!--<Style TargetType="Page" x:Key="PageStyle">
+        <Style.BasedOn>
+            <StaticResource ResourceKey="BorderStyle"/>
+            <StaticResource ResourceKey="ButtonStyle"/>
+        </Style.BasedOn>
+    </Style>-->
+    
     <!-- Stílus az ablak fejlécéhez -->
     <Style TargetType="Border" x:Key="BorderStyle">
         <Setter Property="Background" Value="#FF3E3E3E"/>

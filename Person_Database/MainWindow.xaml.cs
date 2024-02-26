@@ -19,16 +19,18 @@ namespace Person_Database
         public MainWindow()
         {
             InitializeComponent();
-            //mainFrame.Navigate(new Uri("HomePage.xaml", UriKind.Relative));
+
+            mainFrame.Content = new HomePage();
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Uri("HomePage.xaml", UriKind.Relative));
+            mainFrame.Content = new HomePage();
         }
+
         private void DataAddButton_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Uri("DataAddPage.xaml", UriKind.Relative));
+            mainFrame.Content = new DataAddPage();
         }
 
         private void DataChangeButton_Click(object sender, RoutedEventArgs e)
