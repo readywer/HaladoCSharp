@@ -39,7 +39,8 @@
         </StackPanel>
 
         <DataGrid Grid.Row="1" AutoGenerateColumns="false" ItemsSource="{Binding}" IsReadOnly="True" FontSize="16" HorizontalAlignment="Right"
-      SelectionMode="Single" SelectionChanged="DataGrid_SelectionChanged" Margin="0,20,0,0" VerticalAlignment="Top">
+      SelectionMode="Single" SelectionChanged="DataGrid_SelectionChanged" Margin="0,20,0,0" VerticalAlignment="Top" CanUserReorderColumns="False" CanUserSortColumns="False"
+                  x:Name="myDataGrid">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Név" Binding="{Binding [0]}" />
                 <DataGridTextColumn Header="Születési hely" Binding="{Binding [1]}" />

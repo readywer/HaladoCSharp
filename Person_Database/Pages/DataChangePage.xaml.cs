@@ -20,45 +20,54 @@ namespace Person_Database
     /// </summary>
     public partial class DataChangePage : Page
     {
+        private int? selectedIndex=null;
         public DataChangePage()
         {
             InitializeComponent();
             DataContext = DataManager.Data;
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is DataGrid dataGrid)
             {
-                int selectedIndex = dataGrid.SelectedIndex;
-                // A selectedIndex változóban megtalálod a kiválasztott sor indexét
-                Console.WriteLine($"Kiválasztott sor indexe: {selectedIndex}");
+                selectedIndex = dataGrid.SelectedIndex;
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Adatok tárolása egy string tömbben
             string[] adatok =
-            [
-                tbNev.Text,
-                tbSzuletesiHely.Text,
-                tbSzuletesiIdo.Text,
-                cbNem.Text,
-                tbDiakigazolvany.Text,
-            ];
-            if ((DataManager.CheckData(adatok)))
             {
-                DataManager.AddData(adatok);
-                DataManager.WriteToFile();
-                MessageBox.Show($"Adatok mentve.", "Save", MessageBoxButton.OK, MessageBoxImage.Information);
+        tbNev.Text,
+        tbSzuletesiHely.Text,
+        tbSzuletesiIdo.Text,
+        cbNem.Text,
+        tbDiakigazolvany.Text,
+    };
 
-                tbNev.Text = "";
-                tbSzuletesiHely.Text = "";
-                tbSzuletesiIdo.Text = "";
-                cbNem.Text = "";
-                tbDiakigazolvany.Text = "";
+            if (DataManager.CheckData(adatok))
+            {
+                if (selectedIndex != null)
+                {
+                    DataManager.ReplaceData((int)selectedIndex, adatok);
+                    DataManager.WriteToFile();
+                    MessageBox.Show($"Adatok megváltoztatva.", "Change", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    tbNev.Text = "";
+                    tbSzuletesiHely.Text = "";
+                    tbSzuletesiIdo.Text = "";
+                    cbNem.Text = "";
+                    tbDiakigazolvany.Text = "";
+                    selectedIndex = null;
+                    CollectionViewSource.GetDefaultView(myDataGrid.ItemsSource).Refresh();
+                }
+                else
+                {
+                    MessageBox.Show($"Válassza ki a változtatandó elemet.", "Hiba", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
-
         }
     }
 }

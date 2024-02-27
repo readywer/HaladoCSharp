@@ -35,17 +35,19 @@ namespace Person_Database
 
         private void DataChangeButton_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Uri("DataChangePage.xaml", UriKind.Relative));
+            mainFrame.Content = new DataChangePage();
         }
 
         private void DataDeleteButton_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Uri("DataDeletePage.xaml", UriKind.Relative));
+            
         }
 
         private void DataSearchButton_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Uri("DataSearchPage.xaml", UriKind.Relative));
+            
         }
     }
 }
