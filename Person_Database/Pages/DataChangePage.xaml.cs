@@ -20,7 +20,7 @@ namespace Person_Database
     /// </summary>
     public partial class DataChangePage : Page
     {
-        private int? selectedIndex=null;
+        private int? selectedIndex = null;
         public DataChangePage()
         {
             InitializeComponent();
@@ -35,17 +35,18 @@ namespace Person_Database
                 selectedIndex = dataGrid.SelectedIndex;
             }
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Adatok tárolása egy string tömbben
             string[] adatok =
             {
-        tbNev.Text,
-        tbSzuletesiHely.Text,
-        tbSzuletesiIdo.Text,
-        cbNem.Text,
-        tbDiakigazolvany.Text,
-    };
+                tbNev.Text,
+                tbSzuletesiHely.Text,
+                tbSzuletesiIdo.Text,
+                cbNem.Text,
+                tbDiakigazolvany.Text,
+            };
 
             if (DataManager.CheckData(adatok))
             {

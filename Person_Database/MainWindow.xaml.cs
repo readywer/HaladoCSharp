@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Person_Database.Pages;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +17,7 @@ namespace Person_Database
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,14 +42,13 @@ namespace Person_Database
 
         private void DataDeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Uri("DataDeletePage.xaml", UriKind.Relative));
-            
+            mainFrame.Content = new DataDeletePage();
+
         }
 
         private void DataSearchButton_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Uri("DataSearchPage.xaml", UriKind.Relative));
-            
+            mainFrame.Content = new DataSearchPage();
         }
     }
 }
