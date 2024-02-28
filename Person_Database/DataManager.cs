@@ -161,13 +161,6 @@ namespace Person_Database
                 return false;
             }
 
-            //Ellenőrzés 6: szám létezik-e már
-            if (FindRows(data[4]).Length != 0)
-            {
-                MessageBox.Show($"Hibás diákigazolvány szám már létezik.", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return false;
-            }
-
             return true; // Ha minden ellenőrzés sikeres
         }
     }
