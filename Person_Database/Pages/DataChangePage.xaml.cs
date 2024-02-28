@@ -33,6 +33,11 @@ namespace Person_Database
             if (sender is DataGrid dataGrid)
             {
                 selectedIndex = dataGrid.SelectedIndex;
+                tbNev.Text = DataManager.Data[(int)selectedIndex][0];
+                tbSzuletesiHely.Text = DataManager.Data[(int)selectedIndex][1];
+                tbSzuletesiIdo.Text = DataManager.Data[(int)selectedIndex][2];
+                cbNem.Text = DataManager.Data[(int)selectedIndex][3];
+                tbDiakigazolvany.Text = DataManager.Data[(int)selectedIndex][4];
             }
         }
 
